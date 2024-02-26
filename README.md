@@ -1,15 +1,21 @@
 # Cross-Age and Cross-Site Domain Shift Impacts on Deep Learning-Based White Matter Fiber Estimation in Newborn and Baby Brains
 
 This repository contains the code for the paper **"[Cross-Age and Cross-Site Domain Shift Impacts on Deep Learning-Based White Matter Fiber Estimation in Newborn and Baby Brains](https://arxiv.org/abs/2312.14773)"** by Rizhong Lin, Ali Gholipour, Jean-Philippe Thiran, Davood Karimi, Hamza Kebiri, and Meritxell Bach Cuadra, which is accepted by the [_21st IEEE International Symposium on Biomedical Imaging (ISBI 2024)_](https://biomedicalimaging.org/2024/).
-The code will be available soon.
 
 ## Abstract
 
 Deep learning models have shown great promise in estimating tissue microstructure from limited diffusion magnetic resonance imaging data. However, these models face domain shift challenges when test and train data are from different scanners and protocols, or when the models are applied to data with inherent variations such as the developing brains of infants and children scanned at various ages. Several techniques have been proposed to address some of these challenges, such as data harmonization or domain adaptation in the adult brain. However, those techniques remain unexplored for the estimation of fiber orientation distribution functions in the rapidly developing brains of infants. In this work, we extensively investigate the age effect and domain shift within and across two different cohorts of 201 newborns and 165 babies using the Method of Moments and fine-tuning strategies. Our results show that reduced variations in the microstructural development of babies in comparison to newborns directly impact the deep learning models' cross-age performance. We also demonstrate that a small number of target domain samples can significantly mitigate domain shift problems.
 
-## Code Availability
+## Structure
 
-Detailed instructions for using the code, along with requirements for the computational environment, will be provided upon the code's release.
+- [`MethodOfMoments`](./MethodOfMoments): The implementation of the Method of Moments (MoM) for harmonizing diffusion MRI data across different sites. The method is described in the following paper:
+  - K. M. Huynh, G. Chen, Y. Wu, D. Shen, and P.-T. Yap, "Multi-Site Harmonization of Diffusion MRI Data via Method of Moments," IEEE Transactions on Medical Imaging, vol. 38, no. 7, pp. 1599–1609, Jul. 2019, doi: 10.1109/TMI.2019.2895020.
+- [`DeepLearning`](./DeepLearning): The implementation of the deep learning model for white matter fiber estimation in newborn and baby brains. The model is described in the following paper:
+  - H. Kebiri, A. Gholipour, R. Lin, L. Vasung, D. Karimi, and M. Bach Cuadra, "Robust Estimation of the Microstructure of the Early Developing Brain Using Deep Learning," in 26th International Conference on Medical Image Computing and Computer Assisted Intervention -- MICCAI 2023, Oct. 2023, pp. 293–303, doi: 10.1007/978-3-031-43990-2_28.
+
+## Data
+
+The data used in this study are from the Developing Human Connectome Project (dHCP) and the Baby Connectome Project (BCP). The dHCP data are available at https://www.humanconnectome.org/study/lifespan-developing-human-connectome-project, and the BCP data are available at https://www.humanconnectome.org/study/lifespan-baby-connectome-project.
 
 ## Citation
 
