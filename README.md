@@ -1,4 +1,8 @@
-# Cross-Age and Cross-Site Domain Shift Impacts on Deep Learning-Based White Matter Fiber Estimation in Newborn and Baby Brains
+# Domain Shifts in White Matter Fiber Estimation
+
+![GitHub](https://img.shields.io/github/license/Medical-Image-Analysis-Laboratory/dl_fiber_domain_shift)
+![DOI](https://zenodo.org/badge/DOI/10.1109/ISBI56570.2024.10635347.svg)
+![DOI](https://zenodo.org/badge/DOI/10.48550/arXiv.2409.01195.svg)
 
 This repository contains the code for the papers
 
@@ -33,7 +37,7 @@ If you find our work useful in your research, please consider citing:
 ```bibtex
 @inproceedings{lin_cross-age_2024,
   title     = {Cross-{Age} and {Cross}-{Site} {Domain} {Shift} {Impacts} on {Deep} {Learning}-{Based} {White} {Matter} {Fiber} {Estimation} in {Newborn} and {Baby} {Brains}},
-  doi       = {10.48550/arXiv.2312.14773},
+  doi       = {10.1109/ISBI56570.2024.10635347},
   author    = {Lin, Rizhong and Gholipour, Ali and Thiran, Jean-Philippe and Karimi, Davood and Kebiri, Hamza and Bach Cuadra, Meritxell},
   year      = 2024,
   month     = may,
@@ -43,6 +47,7 @@ If you find our work useful in your research, please consider citing:
 @inproceedings{lin_ground-truth_2024,
   title     = {Ground-truth effects in learning-based fiber orientation distribution estimation in neonatal brains},
   url       = {https://arxiv.org/abs/2409.01195},
+  doi       = {10.48550/arXiv.2409.01195},
   author    = {Lin, Rizhong and Kebiri, Hamza and Gholipour, Ali and Chen, Yufei and Thiran, Jean-Philippe and Karimi, Davood and Bach Cuadra, Meritxell},
   year      = 2024,
   month     = oct,
