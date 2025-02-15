@@ -20,6 +20,7 @@ This repository contains the code for the papers
   - [`kebiri_robust_2023`](./DeepLearning/kebiri_robust_2023): The implementation of the deep learning model for white matter fiber estimation in newborn and baby brains. The model is described in the following papers:
     - H. Kebiri, A. Gholipour, R. Lin, L. Vasung, D. Karimi, and M. Bach Cuadra, "Robust Estimation of the Microstructure of the Early Developing Brain Using Deep Learning," in _26th International Conference on Medical Image Computing and Computer Assisted Intervention -- MICCAI 2023_, Oct. 2023, pp. 293–303, doi: 10.1007/978-3-031-43990-2_28.
     - H. Kebiri, A. Gholipour, R. Lin, L. Vasung, C. Calixto, Ž. Krsnik, D. Karimi, and M. Bach Cuadra, "Deep learning microstructure estimation of developing brains from diffusion MRI: A newborn and fetal study," _Medical Image Analysis_, vol. 95, p. 103186, Jul. 2024, doi: 10.1016/j.media.2024.103186.
+  - [`kebiri_robust_2023_pytorch`](./DeepLearning/kebiri_robust_2023_pytorch): The PyTorch implementation of the deep learning model for white matter fiber estimation in newborn and baby brains shown in `kebiri_robust_2023`.
 
 ## Data
 
