@@ -15,14 +15,19 @@ def set_global_seed(seed: int = 42) -> None:
     tf.random.set_seed(seed)
     tf.experimental.numpy.random.seed(seed)
     # When running on the CuDNN backend, two further options must be set
-    os.environ['TF_CUDNN_DETERMINISTIC'] = '1'
-    os.environ['TF_DETERMINISTIC_OPS'] = '1'
+    os.environ["TF_CUDNN_DETERMINISTIC"] = "1"
+    os.environ["TF_DETERMINISTIC_OPS"] = "1"
     # Set a fixed value for the hash seed
     os.environ["PYTHONHASHSEED"] = str(seed)
     print(f"Random seed set as {seed}")
 
 
-def train_generator(X, Y, Mask, batch_size, ):
+def train_generator(
+    X,
+    Y,
+    Mask,
+    batch_size,
+):
     SX, SY, SZ = X.shape[1:4]
     n_sig, n_tar = X.shape[-1], Y.shape[-1]
     LX, LY, LZ = 16, 16, 16
@@ -42,17 +47,17 @@ def train_generator(X, Y, Mask, batch_size, ):
                 y_i = np.random.randint(SY - LY - 1)
                 z_i = np.random.randint(SZ - LZ - 1)
 
-                batch_m = M[i, x_i:x_i + LX, y_i:y_i + LY, z_i:z_i + LZ].copy()
-                cond_0 = np.all(
-                    batch_m[LXc:LX - LXc, LYc:LY - LYc, LZc:LZ - LZc])
-                cond_1 = Mask[i, x_i + LX // 2,
-                              y_i + LY // 2, z_i + LZ // 2] > 0.5
+                batch_m = M[i, x_i : x_i + LX, y_i : y_i + LY, z_i : z_i + LZ].copy()
+                cond_0 = np.all(batch_m[LXc : LX - LXc, LYc : LY - LYc, LZc : LZ - LZc])
+                cond_1 = Mask[i, x_i + LX // 2, y_i + LY // 2, z_i + LZ // 2] > 0.5
 
                 if cond_0 and cond_1:
-                    batch_x[n_batches] = X[i, x_i:x_i + LX,
-                                           y_i:y_i + LY, z_i:z_i + LZ].copy()
-                    batch_y[n_batches] = Y[i, x_i:x_i + LX,
-                                           y_i:y_i + LY, z_i:z_i + LZ].copy()
+                    batch_x[n_batches] = X[
+                        i, x_i : x_i + LX, y_i : y_i + LY, z_i : z_i + LZ
+                    ].copy()
+                    batch_y[n_batches] = Y[
+                        i, x_i : x_i + LX, y_i : y_i + LY, z_i : z_i + LZ
+                    ].copy()
                     n_batches += 1
                     break
 
@@ -66,7 +71,12 @@ def train_generator(X, Y, Mask, batch_size, ):
             yield batch_x[:n_batches], batch_y[:n_batches]
 
 
-def train_generator_adv(X, Y, Mask, batch_size, ):
+def train_generator_adv(
+    X,
+    Y,
+    Mask,
+    batch_size,
+):
     SX, SY, SZ = X.shape[1:4]
     n_sig, n_tar = X.shape[-1], Y.shape[-1]
     LX, LY, LZ = 16, 16, 16
@@ -86,17 +96,17 @@ def train_generator_adv(X, Y, Mask, batch_size, ):
                 y_i = np.random.randint(SY - LY - 1)
                 z_i = np.random.randint(SZ - LZ - 1)
 
-                batch_m = M[i, x_i:x_i + LX, y_i:y_i + LY, z_i:z_i + LZ].copy()
-                cond_0 = np.all(
-                    batch_m[LXc:LX - LXc, LYc:LY - LYc, LZc:LZ - LZc])
-                cond_1 = Mask[i, x_i + LX // 2,
-                              y_i + LY // 2, z_i + LZ // 2] > 0.5
+                batch_m = M[i, x_i : x_i + LX, y_i : y_i + LY, z_i : z_i + LZ].copy()
+                cond_0 = np.all(batch_m[LXc : LX - LXc, LYc : LY - LYc, LZc : LZ - LZc])
+                cond_1 = Mask[i, x_i + LX // 2, y_i + LY // 2, z_i + LZ // 2] > 0.5
 
                 if cond_0 and cond_1:
-                    batch_x[n_batches] = X[i, x_i:x_i + LX,
-                                           y_i:y_i + LY, z_i:z_i + LZ].copy()
-                    batch_y[n_batches] = Y[i, x_i:x_i + LX,
-                                           y_i:y_i + LY, z_i:z_i + LZ].copy()
+                    batch_x[n_batches] = X[
+                        i, x_i : x_i + LX, y_i : y_i + LY, z_i : z_i + LZ
+                    ].copy()
+                    batch_y[n_batches] = Y[
+                        i, x_i : x_i + LX, y_i : y_i + LY, z_i : z_i + LZ
+                    ].copy()
                     batch_adv[n_batches] = i % 2
                     n_batches += 1
                     break
@@ -117,12 +127,30 @@ def val_generator(X, Y, Mask, batch_size=1):
     n_sig, n_tar = X.shape[-1], Y.shape[-1]
     LX, LY, LZ = 16, 16, 16
     test_shift = LX // 3
-    lx_list = np.squeeze(np.concatenate((np.arange(0, SX - LX, test_shift)
-                         [:, np.newaxis], np.array([SX - LX])[:, np.newaxis])).astype(int))
-    ly_list = np.squeeze(np.concatenate((np.arange(0, SY - LY, test_shift)
-                         [:, np.newaxis], np.array([SY - LY])[:, np.newaxis])).astype(int))
-    lz_list = np.squeeze(np.concatenate((np.arange(0, SZ - LZ, test_shift)
-                         [:, np.newaxis], np.array([SZ - LZ])[:, np.newaxis])).astype(int))
+    lx_list = np.squeeze(
+        np.concatenate(
+            (
+                np.arange(0, SX - LX, test_shift)[:, np.newaxis],
+                np.array([SX - LX])[:, np.newaxis],
+            )
+        ).astype(int)
+    )
+    ly_list = np.squeeze(
+        np.concatenate(
+            (
+                np.arange(0, SY - LY, test_shift)[:, np.newaxis],
+                np.array([SY - LY])[:, np.newaxis],
+            )
+        ).astype(int)
+    )
+    lz_list = np.squeeze(
+        np.concatenate(
+            (
+                np.arange(0, SZ - LZ, test_shift)[:, np.newaxis],
+                np.array([SZ - LZ])[:, np.newaxis],
+            )
+        ).astype(int)
+    )
     LXc, LYc, LZc = 6, 6, 6
 
     while True:
@@ -135,11 +163,21 @@ def val_generator(X, Y, Mask, batch_size=1):
 
             for lx, ly, lz in product(lx_list, ly_list, lz_list):
                 cond_1 = np.all(
-                    Mask[i:i+1, lx+LXc:lx+LX-LXc, ly+LYc:ly+LY-LYc, lz+LZc:lz+LZ-LZc])
+                    Mask[
+                        i : i + 1,
+                        lx + LXc : lx + LX - LXc,
+                        ly + LYc : ly + LY - LYc,
+                        lz + LZc : lz + LZ - LZc,
+                    ]
+                )
 
                 if cond_1:
-                    batch_x[n_batch] = X[i:i+1, lx:lx+LX, ly:ly+LY, lz:lz+LZ]
-                    batch_y[n_batch] = Y[i:i+1, lx:lx+LX, ly:ly+LY, lz:lz+LZ]
+                    batch_x[n_batch] = X[
+                        i : i + 1, lx : lx + LX, ly : ly + LY, lz : lz + LZ
+                    ]
+                    batch_y[n_batch] = Y[
+                        i : i + 1, lx : lx + LX, ly : ly + LY, lz : lz + LZ
+                    ]
                     n_batch += 1
 
                 if n_batch == batch_size:
@@ -155,16 +193,16 @@ def val_generator(X, Y, Mask, batch_size=1):
 def val_generator_w(X, Y, Mask, batch_size=1):
     while True:
         for i in range(X.shape[0]):
-            yield X[i:i+1], Y[i:i+1]
+            yield X[i : i + 1], Y[i : i + 1]
 
 
 def val_generator_w_adv(X, Y, Mask, batch_size=1):
     while True:
         for i in range(X.shape[0]):
-            yield X[i:i+1], [Y[i:i+1], np.array([[i % 2]])]
+            yield X[i : i + 1], [Y[i : i + 1], np.array([[i % 2]])]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     import numpy as np
 

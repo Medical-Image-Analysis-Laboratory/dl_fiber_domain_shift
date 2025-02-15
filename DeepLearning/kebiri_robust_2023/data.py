@@ -5,8 +5,28 @@ import nibabel as nib
 import numpy as np
 
 
-def process_directory(directory, index, X_train, Y_train, Mask, directory_list, x_begin, x_end, y_begin, y_end, z_begin, z_end, x_name, y_name, mask_name):
-    print('Processing directory {} of {}: {}'.format(index + 1, len(directory_list), directory))
+def process_directory(
+    directory,
+    index,
+    X_train,
+    Y_train,
+    Mask,
+    directory_list,
+    x_begin,
+    x_end,
+    y_begin,
+    y_end,
+    z_begin,
+    z_end,
+    x_name,
+    y_name,
+    mask_name,
+):
+    print(
+        "Processing directory {} of {}: {}".format(
+            index + 1, len(directory_list), directory
+        )
+    )
     # Load the nifti file
     x_data = nib.load(os.path.join(directory, x_name)).get_fdata()
     y_data = nib.load(os.path.join(directory, y_name)).get_fdata()
@@ -29,21 +49,39 @@ def process_directory(directory, index, X_train, Y_train, Mask, directory_list, 
     del x_data, y_data, mask
 
 
-def process_data(data_dir, dir_list_dir, target_shape, x_begin, x_end, y_begin, y_end, z_begin, z_end, x_name, y_name, mask_name):
+def process_data(
+    data_dir,
+    dir_list_dir,
+    target_shape,
+    x_begin,
+    x_end,
+    y_begin,
+    y_end,
+    z_begin,
+    z_end,
+    x_name,
+    y_name,
+    mask_name,
+):
     try:
         directory_list = np.loadtxt(dir_list_dir, dtype=str)
-        directory_list = [os.path.join(data_dir, directory) for directory in directory_list]
-        print('Loaded directory list from file.')
+        directory_list = [
+            os.path.join(data_dir, directory) for directory in directory_list
+        ]
+        print("Loaded directory list from file.")
 
     except OSError:
         # Generate all folders containing `d_mri_subset_6.nii.gz`
-        directory_list = glob.glob(os.path.join('{YOUR_DATA_DIR}', '{YOUR_DATA_SUBSET_DIR}', x_name), recursive=True)
+        directory_list = glob.glob(
+            os.path.join("{YOUR_DATA_DIR}", "{YOUR_DATA_SUBSET_DIR}", x_name),
+            recursive=True,
+        )
         directory_list = [os.path.dirname(directory) for directory in directory_list]
         np.random.shuffle(directory_list)
 
-        np.savetxt(os.path.join('.', 'directory_list.txt'), directory_list, fmt='%s')
+        np.savetxt(os.path.join(".", "directory_list.txt"), directory_list, fmt="%s")
 
-    print('Found {} directories containing dwi'.format(len(directory_list)))
+    print("Found {} directories containing dwi".format(len(directory_list)))
     print(directory_list)
 
     N_grad = 6
@@ -59,8 +97,26 @@ def process_data(data_dir, dir_list_dir, target_shape, x_begin, x_end, y_begin, 
 
     threads = []
     for i, directory in enumerate(directory_list):
-        thread = threading.Thread(target=process_directory, args=(
-            directory, i, X_train, Y_train, Mask, directory_list, x_begin, x_end, y_begin, y_end, z_begin, z_end, x_name, y_name, mask_name))
+        thread = threading.Thread(
+            target=process_directory,
+            args=(
+                directory,
+                i,
+                X_train,
+                Y_train,
+                Mask,
+                directory_list,
+                x_begin,
+                x_end,
+                y_begin,
+                y_end,
+                z_begin,
+                z_end,
+                x_name,
+                y_name,
+                mask_name,
+            ),
+        )
         thread.start()
         threads.append(thread)
 

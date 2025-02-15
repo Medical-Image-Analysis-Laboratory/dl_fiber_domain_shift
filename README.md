@@ -1,18 +1,25 @@
 # Cross-Age and Cross-Site Domain Shift Impacts on Deep Learning-Based White Matter Fiber Estimation in Newborn and Baby Brains
 
-This repository contains the code for the paper **"[Cross-Age and Cross-Site Domain Shift Impacts on Deep Learning-Based White Matter Fiber Estimation in Newborn and Baby Brains](https://arxiv.org/abs/2312.14773)"** by Rizhong Lin, Ali Gholipour, Jean-Philippe Thiran, Davood Karimi, Hamza Kebiri, and Meritxell Bach Cuadra, which is accepted by the [_21st IEEE International Symposium on Biomedical Imaging (ISBI 2024)_](https://biomedicalimaging.org/2024/).
+This repository contains the code for the papers
 
-## Abstract
+- **"[Cross-age and cross-site domain shift impacts on deep learning-based white matter fiber estimation in newborn and baby brains](https://arxiv.org/abs/2312.14773)"** by Rizhong Lin, Ali Gholipour, Jean-Philippe Thiran, Davood Karimi, Hamza Kebiri*, and Meritxell Bach Cuadra*, ISBI 2024.
+- **"[Ground-truth effects in learning-based fiber orientation distribution estimation in neonatal brains](http://arxiv.org/abs/2409.01195)"** by Rizhong Lin*, Hamza Kebiri*, Ali Gholipour, Yufei Chen, Jean-Philippe Thiran, Davood Karimi, and Meritxell Bach Cuadra, CDMRI 2024.
+<!-- - **"Tentative title"** by Rizhong Lin*, Hamza Kebiri*, Ali Gholipour, Yufei Chen, Jean-Philippe Thiran, Davood Karimi, and Meritxell Bach Cuadra, in preparation. -->
 
-Deep learning models have shown great promise in estimating tissue microstructure from limited diffusion magnetic resonance imaging data. However, these models face domain shift challenges when test and train data are from different scanners and protocols, or when the models are applied to data with inherent variations such as the developing brains of infants and children scanned at various ages. Several techniques have been proposed to address some of these challenges, such as data harmonization or domain adaptation in the adult brain. However, those techniques remain unexplored for the estimation of fiber orientation distribution functions in the rapidly developing brains of infants. In this work, we extensively investigate the age effect and domain shift within and across two different cohorts of 201 newborns and 165 babies using the Method of Moments and fine-tuning strategies. Our results show that reduced variations in the microstructural development of babies in comparison to newborns directly impact the deep learning models' cross-age performance. We also demonstrate that a small number of target domain samples can significantly mitigate domain shift problems.
+\* Equal contribution
 
 ## Structure
 
 - [`MethodOfMoments`](./MethodOfMoments): The implementation of the Method of Moments (MoM) for harmonizing diffusion MRI data across different sites. The method is described in the following paper:
   - K. M. Huynh, G. Chen, Y. Wu, D. Shen, and P.-T. Yap, "Multi-Site Harmonization of Diffusion MRI Data via Method of Moments," _IEEE Transactions on Medical Imaging_, vol. 38, no. 7, pp. 1599–1609, Jul. 2019, doi: 10.1109/TMI.2019.2895020.
-- [`DeepLearning`](./DeepLearning): The implementation of the deep learning model for white matter fiber estimation in newborn and baby brains. The model is described in the following papers:
-  - H. Kebiri, A. Gholipour, R. Lin, L. Vasung, D. Karimi, and M. Bach Cuadra, "Robust Estimation of the Microstructure of the Early Developing Brain Using Deep Learning," in _26th International Conference on Medical Image Computing and Computer Assisted Intervention -- MICCAI 2023_, Oct. 2023, pp. 293–303, doi: 10.1007/978-3-031-43990-2_28.
-  - H. Kebiri, A. Gholipour, R. Lin, L. Vasung, C. Calixto, Ž. Krsnik, D. Karimi, and M. Bach Cuadra, "Deep learning microstructure estimation of developing brains from diffusion MRI: A newborn and fetal study," _Medical Image Analysis_, vol. 95, p. 103186, Jul. 2024, doi: 10.1016/j.media.2024.103186.
+- [`DeepLearning`](./DeepLearning):
+  - [`karimi_learning_2021`](./DeepLearning/karimi_learning_2021): The implementation of the MLP model for estimating the fiber orientation distribution function (fODF) from diffusion-weighted MRI. The model is described in the following paper:
+    - D. Karimi, L. Vasung, C. Jaimes, F. Machado-Rivas, S. K. Warfield, and A. Gholipour, "Learning to estimate the fiber orientation distribution function from diffusion-weighted MRI," _NeuroImage_, vol. 239, p. 118316, Oct. 2021, doi: 10.1016/j.neuroimage.2021.118316.
+  - [`hosseini_cttrack_2022`](./DeepLearning/hosseini_cttrack_2022): The implementation of the CTtrack model for fiber orientation estimation and tractography. The model is described in the following paper:
+    - S. M. Hossein Hosseini, "CTtrack: A CNN+Transformer-based framework for fiber orientation estimation & tractography," _Neuroscience Informatics_, 2022.
+  - [`kebiri_robust_2023`](./DeepLearning/kebiri_robust_2023): The implementation of the deep learning model for white matter fiber estimation in newborn and baby brains. The model is described in the following papers:
+    - H. Kebiri, A. Gholipour, R. Lin, L. Vasung, D. Karimi, and M. Bach Cuadra, "Robust Estimation of the Microstructure of the Early Developing Brain Using Deep Learning," in _26th International Conference on Medical Image Computing and Computer Assisted Intervention -- MICCAI 2023_, Oct. 2023, pp. 293–303, doi: 10.1007/978-3-031-43990-2_28.
+    - H. Kebiri, A. Gholipour, R. Lin, L. Vasung, C. Calixto, Ž. Krsnik, D. Karimi, and M. Bach Cuadra, "Deep learning microstructure estimation of developing brains from diffusion MRI: A newborn and fetal study," _Medical Image Analysis_, vol. 95, p. 103186, Jul. 2024, doi: 10.1016/j.media.2024.103186.
 
 ## Data
 
@@ -30,6 +37,15 @@ If you find our work useful in your research, please consider citing:
   year      = 2024,
   month     = may,
   booktitle = {21st {IEEE} {International} {Symposium} on {Biomedical} {Imaging} ({ISBI})}
+}
+
+@inproceedings{lin_ground-truth_2024,
+  title     = {Ground-truth effects in learning-based fiber orientation distribution estimation in neonatal brains},
+  url       = {https://arxiv.org/abs/2409.01195},
+  author    = {Lin, Rizhong and Kebiri, Hamza and Gholipour, Ali and Chen, Yufei and Thiran, Jean-Philippe and Karimi, Davood and Bach Cuadra, Meritxell},
+  year      = 2024,
+  month     = oct,
+  booktitle = {MICCAI Workshop on Computational Diffusion MRI (CDMRI) 2024}
 }
 
 @article{kebiri_deep_2024,
@@ -57,17 +73,14 @@ If you find our work useful in your research, please consider citing:
 }
 ```
 
-## Acknowledgments
-
-We acknowledge access to the facilities and expertise of the CIBM Center for Biomedical Imaging, a Swiss research center of excellence founded and supported by Lausanne University Hospital (CHUV), University of Lausanne (UNIL), Ecole polytechnique fédérale de Lausanne (EPFL), University of Geneva (UNIGE), Geneva University Hospitals (HUG) and the Leenaards and Jeantet Foundations.
-
-This research was partly funded by the Swiss National Science Foundation (grants 182602 and 215641); also by the National Institute of Neurological Disorders and Stroke, and the Eunice Kennedy Shriver National Institute of Child Health and Human Development of the National Institutes of Health (NIH) of the United States (award numbers R01NS106030, R01NS128281 and R01HD110772).
-
 ## Contact
 
-Please feel free to contact Rizhong Lin at
+Please feel free to contact us if you have any questions or comments:
 
 ```python
 # Python
-'rizhong.lin@$.#'.replace('$', 'epfl').replace('#', 'ch')
+[
+    'rizhong.lin@$.#'.replace('$', 'epfl').replace('#', 'ch'),
+    'hamza.kebiri@$.#'.replace('$', 'unil').replace('#', 'ch')
+]
 ```
