@@ -1,8 +1,10 @@
 # Domain Shifts in White Matter Fiber Estimation
 
-![GitHub](https://img.shields.io/github/license/Medical-Image-Analysis-Laboratory/dl_fiber_domain_shift)
-![DOI](https://zenodo.org/badge/DOI/10.1109/ISBI56570.2024.10635347.svg)
-![DOI](https://zenodo.org/badge/DOI/10.48550/arXiv.2409.01195.svg)
+[![GitHub](https://img.shields.io/github/license/Medical-Image-Analysis-Laboratory/dl_fiber_domain_shift)](https://github.com/Medical-Image-Analysis-Laboratory/dl_fiber_domain_shift)
+[![DOI](https://zenodo.org/badge/DOI/10.1109/ISBI56570.2024.10635347.svg)](https://doi.org/10.1109/ISBI56570.2024.10635347)
+[![DOI](https://zenodo.org/badge/DOI/10.48550/arXiv.2409.01195.svg)](https://doi.org/10.48550/arXiv.2409.01195)
+<!-- [![DOI](https://zenodo.org/badge/DOI/10.1016/j.media.2024.103186.svg)](https://doi.org/10.1016/j.media.2024.103186)
+[![DOI](https://zenodo.org/badge/DOI/10.1007/978-3-031-43990-2_28.svg)](https://doi.org/10.1007/978-3-031-43990-2_28) -->
 
 This repository contains the code for the papers
 
