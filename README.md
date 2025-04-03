@@ -81,22 +81,25 @@ If you find our work useful in your research, please consider citing our papers:
 
 ## Acknowledgements
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px; width: 100%;">
-    <img src="./assets/fns.png" alt="SNSF" style="height: 50px; max-width: 100%; object-fit: contain;">
-    <img src="./assets/nih.png" alt="NIH" style="height: 50px; max-width: 100%; object-fit: contain;">
-    <img src="./assets/nsfc.png" alt="NSFC" style="height: 50px; max-width: 100%; object-fit: contain;">
-    <img src="./assets/cibm.png" alt="CIBM" style="height: 50px; max-width: 100%; object-fit: contain;">
-</div>
+<table align="center" width="100%">
+  <tr align="center">
+    <td width="25%"><img src="./assets/fns.png" alt="SNSF" style="max-height:150px; width:auto;"></td>
+    <td width="25%"><img src="./assets/nih.png" alt="NIH" style="max-height:150px; width:auto;"></td>
+    <td width="15%"><img src="./assets/nsfc.png" alt="NSFC" style="max-height:150px; width:auto;"></td>
+    <td width="35%"><img src="./assets/cibm.png" alt="CIBM" style="max-height:150px; width:auto;"></td>
+  </tr>
+</table>
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; width: 100%;">
-    <img src="./assets/chuv.png" alt="CHUV" style="height: 40px; max-width: 100%; object-fit: contain;">
-    <img src="./assets/unil.png" alt="UNIL" style="height: 40px; max-width: 100%; object-fit: contain;">
-    <img src="./assets/epfl.png" alt="EPFL" style="height: 40px; max-width: 100%; object-fit: contain;">
-    <img src="./assets/hms.png" alt="Harvard Medical School" style="height: 40px; max-width: 100%; object-fit: contain;">
-    <img src="./assets/bch.png" alt="Boston Children's Hospital" style="height: 40px; max-width: 100%; object-fit: contain;">
-    <img src="./assets/tongji.png" alt="Tongji University" style="height: 40px; max-width: 100%; object-fit: contain;">
-</div>
-
+<table align="center" width="100%">
+  <tr align="center">
+    <td width="16.6%"><img src="./assets/chuv.png" alt="CHUV" style="max-width:120px; width:100%; height:auto;"></td>
+    <td width="16.6%"><img src="./assets/unil.png" alt="UNIL" style="max-width:120px; width:100%; height:auto;"></td>
+    <td width="16.6%"><img src="./assets/epfl.png" alt="EPFL" style="max-width:120px; width:100%; height:auto;"></td>
+    <td width="16.6%"><img src="./assets/hms.png" alt="Harvard Medical School" style="max-width:120px; width:100%; height:auto;"></td>
+    <td width="16.6%"><img src="./assets/bch.png" alt="Boston Children's Hospital" style="max-width:120px; width:100%; height:auto;"></td>
+    <td width="16.6%"><img src="./assets/tongji.png" alt="Tongji University" style="max-width:120px; width:100%; height:auto;"></td>
+  </tr>
+</table>
 
 We gratefully acknowledge access to the facilities and expertise of the CIBM Center for Biomedical Imaging (Centre d'Imagerie BioMédicale), a Swiss research center of excellence founded and supported by Lausanne University Hospital (CHUV), University of Lausanne (UNIL), École Polytechnique Fédérale de Lausanne (EPFL), University of Geneva (UNIGE), Geneva University Hospitals (HUG), and the Leenaards and Jeantet Foundations.
 
