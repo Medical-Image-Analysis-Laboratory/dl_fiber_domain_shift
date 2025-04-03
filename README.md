@@ -3,10 +3,8 @@
 [![GitHub](https://img.shields.io/github/license/Medical-Image-Analysis-Laboratory/dl_fiber_domain_shift)](https://github.com/Medical-Image-Analysis-Laboratory/dl_fiber_domain_shift)
 [![DOI](https://zenodo.org/badge/DOI/10.1109/ISBI56570.2024.10635347.svg)](https://doi.org/10.1109/ISBI56570.2024.10635347)
 [![DOI](https://zenodo.org/badge/DOI/10.48550/arXiv.2409.01195.svg)](https://doi.org/10.48550/arXiv.2409.01195)
-<!-- [![DOI](https://zenodo.org/badge/DOI/10.1016/j.media.2024.103186.svg)](https://doi.org/10.1016/j.media.2024.103186)
-[![DOI](https://zenodo.org/badge/DOI/10.1007/978-3-031-43990-2_28.svg)](https://doi.org/10.1007/978-3-031-43990-2_28) -->
 
-This repository contains the code for the papers
+This repository contains the code for the papers:
 
 - **"[Cross-age and cross-site domain shift impacts on deep learning-based white matter fiber estimation in newborn and baby brains](https://arxiv.org/abs/2312.14773)"** by Rizhong Lin, Ali Gholipour, Jean-Philippe Thiran, Davood Karimi, Hamza Kebiri*, and Meritxell Bach Cuadra*, ISBI 2024.
 - **"[Ground-truth effects in learning-based fiber orientation distribution estimation in neonatal brains](http://arxiv.org/abs/2409.01195)"** by Rizhong Lin*, Hamza Kebiri*, Ali Gholipour, Yufei Chen, Jean-Philippe Thiran, Davood Karimi, and Meritxell Bach Cuadra, CDMRI 2024.
@@ -16,17 +14,17 @@ This repository contains the code for the papers
 
 ## Structure
 
-- [`MethodOfMoments`](./MethodOfMoments): The implementation of the Method of Moments (MoM) for harmonizing diffusion MRI data across different sites. The method is described in the following paper:
+- [`MethodOfMoments`](./MethodOfMoments): Implementation of the Method of Moments (MoM) for harmonizing diffusion MRI data across different sites. The method is described in:
   - K. M. Huynh, G. Chen, Y. Wu, D. Shen, and P.-T. Yap, "Multi-Site Harmonization of Diffusion MRI Data via Method of Moments," _IEEE Transactions on Medical Imaging_, vol. 38, no. 7, pp. 1599–1609, Jul. 2019, doi: 10.1109/TMI.2019.2895020.
 - [`DeepLearning`](./DeepLearning):
-  - [`karimi_learning_2021`](./DeepLearning/karimi_learning_2021): The implementation of the MLP model for estimating the fiber orientation distribution function (fODF) from diffusion-weighted MRI. The model is described in the following paper:
+  - [`karimi_learning_2021`](./DeepLearning/karimi_learning_2021): MLP model for estimating the fiber orientation distribution function (fODF) from diffusion-weighted MRI, described in:
     - D. Karimi, L. Vasung, C. Jaimes, F. Machado-Rivas, S. K. Warfield, and A. Gholipour, "Learning to estimate the fiber orientation distribution function from diffusion-weighted MRI," _NeuroImage_, vol. 239, p. 118316, Oct. 2021, doi: 10.1016/j.neuroimage.2021.118316.
-  - [`hosseini_cttrack_2022`](./DeepLearning/hosseini_cttrack_2022): The implementation of the CTtrack model for fiber orientation estimation and tractography. The model is described in the following paper:
+  - [`hosseini_cttrack_2022`](./DeepLearning/hosseini_cttrack_2022): CTtrack model for fiber orientation estimation and tractography, described in:
     - S. M. Hossein Hosseini, "CTtrack: A CNN+Transformer-based framework for fiber orientation estimation & tractography," _Neuroscience Informatics_, 2022.
-  - [`kebiri_robust_2023`](./DeepLearning/kebiri_robust_2023): The implementation of the deep learning model for white matter fiber estimation in newborn and baby brains. The model is described in the following papers:
+  - [`kebiri_robust_2023`](./DeepLearning/kebiri_robust_2023): Deep learning model for white matter fiber estimation in newborn and baby brains, described in:
     - H. Kebiri, A. Gholipour, R. Lin, L. Vasung, D. Karimi, and M. Bach Cuadra, "Robust Estimation of the Microstructure of the Early Developing Brain Using Deep Learning," in _26th International Conference on Medical Image Computing and Computer Assisted Intervention -- MICCAI 2023_, Oct. 2023, pp. 293–303, doi: 10.1007/978-3-031-43990-2_28.
     - H. Kebiri, A. Gholipour, R. Lin, L. Vasung, C. Calixto, Ž. Krsnik, D. Karimi, and M. Bach Cuadra, "Deep learning microstructure estimation of developing brains from diffusion MRI: A newborn and fetal study," _Medical Image Analysis_, vol. 95, p. 103186, Jul. 2024, doi: 10.1016/j.media.2024.103186.
-  - [`kebiri_robust_2023_pytorch`](./DeepLearning/kebiri_robust_2023_pytorch): The PyTorch implementation of the deep learning model for white matter fiber estimation in newborn and baby brains shown in `kebiri_robust_2023`.
+  - [`kebiri_robust_2023_pytorch`](./DeepLearning/kebiri_robust_2023_pytorch): PyTorch implementation of the deep learning model for white matter fiber estimation in newborn and baby brains presented in `kebiri_robust_2023`.
 
 ## Data
 
@@ -34,7 +32,7 @@ The data used in this study are from the Developing Human Connectome Project (dH
 
 ## Citation
 
-If you find our work useful in your research, please consider citing:
+If you find our work useful in your research, please consider citing our papers:
 
 ```bibtex
 @inproceedings{lin_cross-age_2024,
@@ -70,7 +68,7 @@ If you find our work useful in your research, please consider citing:
 }
 
 @inproceedings{kebiri_robust_2023,
-  title     = {Robust {Estimation} of the {Microstructure} of the {Early} {Developing} {Brain} {Using} {Deep} {Learning}},
+  title     = {Robust {Estimation} of the {Microstructure} of the {Early} {Developing} {Brain} {Using} {Deep} {Learning}},
   url       = {http://link.springer.com/chapter/10.1007/978-3-031-43990-2_28},
   doi       = {10.1007/978-3-031-43990-2_28},
   author    = {Kebiri, Hamza and Gholipour, Ali and Lin, Rizhong and Vasung, Lana and Karimi, Davood and Bach Cuadra, Meritxell},
@@ -81,12 +79,35 @@ If you find our work useful in your research, please consider citing:
 }
 ```
 
+## Acknowledgements
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px; width: 100%;">
+    <img src="./assets/fns.png" alt="SNSF" style="height: 50px; max-width: 100%; object-fit: contain;">
+    <img src="./assets/nih.png" alt="NIH" style="height: 50px; max-width: 100%; object-fit: contain;">
+    <img src="./assets/nsfc.png" alt="NSFC" style="height: 50px; max-width: 100%; object-fit: contain;">
+    <img src="./assets/cibm.png" alt="CIBM" style="height: 50px; max-width: 100%; object-fit: contain;">
+</div>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; width: 100%;">
+    <img src="./assets/chuv.png" alt="CHUV" style="height: 40px; max-width: 100%; object-fit: contain;">
+    <img src="./assets/unil.png" alt="UNIL" style="height: 40px; max-width: 100%; object-fit: contain;">
+    <img src="./assets/epfl.png" alt="EPFL" style="height: 40px; max-width: 100%; object-fit: contain;">
+    <img src="./assets/hms.png" alt="Harvard Medical School" style="height: 40px; max-width: 100%; object-fit: contain;">
+    <img src="./assets/bch.png" alt="Boston Children's Hospital" style="height: 40px; max-width: 100%; object-fit: contain;">
+    <img src="./assets/tongji.png" alt="Tongji University" style="height: 40px; max-width: 100%; object-fit: contain;">
+</div>
+
+
+We gratefully acknowledge access to the facilities and expertise of the CIBM Center for Biomedical Imaging (Centre d'Imagerie BioMédicale), a Swiss research center of excellence founded and supported by Lausanne University Hospital (CHUV), University of Lausanne (UNIL), École Polytechnique Fédérale de Lausanne (EPFL), University of Geneva (UNIGE), Geneva University Hospitals (HUG), and the Leenaards and Jeantet Foundations.
+
+This research was supported by grants from the Swiss National Science Foundation (grants 182602 and 215641); the U.S. National Institutes of Health, including awards from the National Institute of Neurological Disorders and Stroke (R01NS128281) and the Eunice Kennedy Shriver National Institute of Child Health and Human Development (R01HD110772); and the National Natural Science Foundation of China (grants 62173252 and 62472315).
+
 ## Contact
 
 Please feel free to contact us if you have any questions or comments:
 
 ```python
-# Python
+# Contact email addresses
 [
     'rizhong.lin@$.#'.replace('$', 'epfl').replace('#', 'ch'),
     'hamza.kebiri@$.#'.replace('$', 'unil').replace('#', 'ch')
